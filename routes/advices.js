@@ -16,7 +16,7 @@ router.route("/").get(getAdvices).post(protect, createAdvice);
 
 router
   .route("/:id")
-  .get(getAdvice)
+  .get(protect, getAdvice)
   .delete(protect, authorize("admin", "operator"), deleteAdvice)
   .put(protect, authorize("admin", "operator"), updateAdvice);
 
